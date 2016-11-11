@@ -5,6 +5,10 @@
  */
 package br.com.globalcode.arquiteto.dsl.interna.builder;
 
+import static br.com.globalcode.arquiteto.dsl.interna.builder.BuildersUtil.produto;
+import br.com.globalcode.arquiteto.dsl.interna.domain.Categoria;
+import br.com.globalcode.arquiteto.dsl.interna.domain.Produto;
+import br.com.globalcode.arquiteto.dsl.interna.domain.impl.ProdutoImpl;
 import java.util.Collection;
 
 /**
@@ -45,6 +49,10 @@ public class ProdutoBuilder {
 
     public Collection<String> getTags() {
         return tags.getCollection();
+    }
+    
+    public Produto getProduto(Categoria categoria){
+        return new ProdutoImpl(categoria, nome.toString(), descricao.toString(), fabricante.toString(), valor.getFloat(), tags.getCollection());
     }
 
 }

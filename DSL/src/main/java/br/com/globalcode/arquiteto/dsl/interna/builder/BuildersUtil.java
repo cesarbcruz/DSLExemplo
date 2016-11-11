@@ -51,7 +51,7 @@ public class BuildersUtil {
         Categoria categoria = new CategoriaImpl(nome.toString(), descricao.toString());
         
         for (ProdutoBuilder produto : produtos) {
-            categoria.getProdutos().add(new ProdutoImpl(categoria, produto.getNome(), produto.getDescricao(), produto.getFabricante(), produto.getValor(), produto.getTags()));
+            categoria.getProdutos().add(produto.getProduto(categoria));
         }
               
         return categoria;
